@@ -588,3 +588,26 @@ def my_age(name:,age:)
 end
 
 my_age(age:31,name: "Carter")
+
+
+
+# MASS ASSIGNMENT
+
+# Helps us to set getters and setters dynamically
+
+
+class User
+  def initialize(attributes)
+    attributes.each do |key, value|
+      # create a getter and setter by calling the attr_accessor method
+      self.class.attr_accessor(key)
+      self.send("#{key}=", value)
+    end
+  end
+end
+
+# I can assign all the maximum values I want to
+user =User.new(name:"Daniel")
+puts user.name
+
+
